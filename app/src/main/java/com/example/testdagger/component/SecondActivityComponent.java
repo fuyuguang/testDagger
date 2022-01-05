@@ -24,5 +24,4 @@ public interface SecondActivityComponent extends AndroidInjector<SecondActivity>
     @Subcomponent.Builder
     abstract  class Builder extends AndroidInjector.Builder<SecondActivity>{}
 
-
 }
