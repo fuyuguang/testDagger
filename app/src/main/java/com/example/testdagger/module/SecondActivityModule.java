@@ -11,6 +11,7 @@ public class SecondActivityModule {
 
     @Provides
     public Usr provideUsr(){
+        System.out.println("FourActivityModule");
         return new Usr();
     }
 }

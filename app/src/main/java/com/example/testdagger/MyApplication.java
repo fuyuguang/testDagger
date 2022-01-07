@@ -1,5 +1,7 @@
 package com.example.testdagger;
 
+
+
 import com.example.testdagger.component.DaggerMyAppComponent;
 
 import dagger.android.AndroidInjector;
@@ -24,6 +26,7 @@ public class MyApplication extends DaggerApplication {
 
     @Override
     protected AndroidInjector<? extends DaggerApplication> applicationInjector() {
-        return DaggerMyAppComponent.builder().create(this);
+//        return DaggerMyAppComponent.builder().create(this);
+        return DaggerMyAppComponent.builder().build();
     }
 }

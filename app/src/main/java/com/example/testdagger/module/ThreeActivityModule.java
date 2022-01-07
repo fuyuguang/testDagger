@@ -10,6 +10,7 @@ public class ThreeActivityModule {
 
     @Provides
     public Usr ProvideUsr(){
+        System.out.println("FourActivityModule");
         return new Usr();
     }
 }
