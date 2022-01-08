@@ -19,14 +19,11 @@ public class SecondActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        /**
+         *  需要调用 AndroidInjection.inject(this); 来真实的执行注入操作
+         */
         AndroidInjection.inject(this);
-
         super.onCreate(savedInstanceState);
-
-//        DaggerSecondActivityComponent.builder()
-//                .mainActivityModule(new MainActivityModule())
-//                .build()
-//                .inject(this);
 
         setContentView(R.layout.activity_main);
         txt1 = findViewById(R.id.txt1);

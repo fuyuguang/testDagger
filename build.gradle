@@ -5,9 +5,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
+        //gradle 和插件之间的 对应关系  https://developer.android.google.cn/studio/releases/gradle-plugin.html
+        //最新gradle 插件地址   https://developer.android.google.cn/reference/tools/gradle-api
         classpath "com.android.tools.build:gradle:7.0.3"
-
-        // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
 }
