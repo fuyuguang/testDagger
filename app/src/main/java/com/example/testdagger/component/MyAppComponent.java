@@ -3,6 +3,7 @@ package com.example.testdagger.component;
 import com.example.testdagger.MyApplication;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
+import com.example.testdagger.module.DogMudule;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -47,14 +48,15 @@ import dagger.internal.Preconditions;
         /**
          *  provider 方式提供的 module
          */
-        CommentModule.class
+        CommentModule.class,
+        DogMudule.class
 })
 public interface MyAppComponent {
     void inject(MyApplication application);
 
 
 //    /**
-//     * @Component.Factory abstract methods must return the @Component type or a supertype of the @Component. Inherited method: create(T)
+//     * @Component.Factory abstract methods must return the @Component type or a supertype of the @Component. Inherited method: create(T)，
 //     */
 //    @Component.Factory
 //    public interface Builder extends AndroidInjector.Factory<MyAppComponent>{
