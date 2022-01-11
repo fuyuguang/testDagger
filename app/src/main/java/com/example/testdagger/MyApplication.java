@@ -3,8 +3,7 @@ package com.example.testdagger;
 import android.app.Application;
 
 
-
-//import com.example.testdagger.component.DaggerMyAppComponent;
+import com.example.testdagger.component.DaggerMyAppComponent;
 
 import javax.inject.Inject;
 
@@ -30,7 +29,7 @@ public class MyApplication extends Application implements HasAndroidInjector {
     @Override
     public void onCreate() {
         super.onCreate();
-//        DaggerMyAppComponent.builder().build().inject(this);
+        DaggerMyAppComponent.builder().build().inject(this);
     }
 
 

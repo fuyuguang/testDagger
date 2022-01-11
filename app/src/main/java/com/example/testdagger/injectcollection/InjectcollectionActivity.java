@@ -1,27 +1,28 @@
-package com.example.testdagger;
+package com.example.testdagger.injectcollection;
 
 import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.testdagger.R;
 import com.example.testdagger.bean.Dog;
 import com.example.testdagger.bean.Usr;
-import com.example.testdagger.injectcollection.Person;
+
+import java.util.Arrays;
+import java.util.Set;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import dagger.android.AndroidInjection;
 
-public class SecondActivity extends AppCompatActivity {
+public class InjectcollectionActivity extends AppCompatActivity {
 
-    @Inject
-    Usr mUser;
 
-    @Named("1")
+//    @Named("1")
     @Inject
-    Person mperson;
+    Set<Person> set;
 
     private TextView txt1;
 
@@ -35,8 +36,7 @@ public class SecondActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         txt1 = findViewById(R.id.txt1);
-        txt1.setText("SecondActivity   "+mUser.name);
 
-        txt1.append("\n"+mperson.toString());
+        txt1.setText("InjectcollectionActivity   : " + set.toString());
     }
 }

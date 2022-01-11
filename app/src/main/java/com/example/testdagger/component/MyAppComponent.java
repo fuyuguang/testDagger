@@ -1,6 +1,7 @@
 package com.example.testdagger.component;
 
 import com.example.testdagger.MyApplication;
+import com.example.testdagger.injectcollection.InjectModule;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
 import com.example.testdagger.module.DogMudule;
@@ -46,13 +47,26 @@ import dagger.internal.Preconditions;
 //        SecondActivityModule.class,
         BuildersModule.class,
         /**
-         *  provider 方式提供的 module
+         *  provider 方式提供的 module，
          */
         CommentModule.class,
-        DogMudule.class
+        /**
+         *  供 ThreeActivity 使用
+         */
+        DogMudule.class,
 })
 public interface MyAppComponent {
     void inject(MyApplication application);
+
+
+    /**
+     * This function exposes the SecondActivityComponent Factory out of the graph so consumer can use it to obtain new instances of SecondActivityComponent
+     * 此函数将 SecondActivityComponent Factory 从图中公开，因此使用者可以使用它来获取 SecondActivityComponent 的新实例
+     *
+     * @return
+     */
+    SecondActivityComponent.Factory getSecondActivityComponent();
+
 
 
 //    /**

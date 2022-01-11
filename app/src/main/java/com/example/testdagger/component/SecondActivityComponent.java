@@ -3,7 +3,13 @@ package com.example.testdagger.component;
 import android.app.Activity;
 
 import com.example.testdagger.SecondActivity;
+import com.example.testdagger.bean.Dog;
+import com.example.testdagger.injectcollection.InjectModule;
+import com.example.testdagger.module.CommentModule;
+import com.example.testdagger.module.DogMudule;
 import com.example.testdagger.module.SecondActivityModule;
+
+import javax.inject.Inject;
 
 import dagger.Binds;
 import dagger.Component;
@@ -17,12 +23,19 @@ import dagger.multibindings.IntoMap;
  * 这里出的问题，，Component不需要关联SecondActivityModule，
  * <p>
  * 错误写法 ：
+ * 注意这里的 SecondActivityComponent 不能在引用 抽象类  SecondActivityModule了， 会报java.lang.StackOverflowError
  * @Subcomponent(modules = { SecondActivityModule.class,AndroidInjectionModule.class})
  * 如果关联会报错：(Execution failed for task ':app:compileDebugJavaWithJavac'. > java.lang.StackOverflowError)
  * <p>
- * 但需要关联AndroidInjectionModule , SecondActivityModule需要在AppComponent中注册
+ * 但需要关联AndroidInjectionModule (已经在父类里关联了), SecondActivityModule需要在AppComponent中注册
  */
-@Subcomponent(modules = {AndroidInjectionModule.class})
+//@Subcomponent(modules = {AndroidInjectionModule.class})
+/**
+ * 可以用 @Subcomponent() SecondActivity类成员的 Person mperson，可以写在父类的modules里，，
+ *
+ */
+//@Subcomponent() 没有 Person mperson的时候
+@Subcomponent(modules = InjectModule.class)
 public interface SecondActivityComponent extends AndroidInjector<SecondActivity> {
 
     /**

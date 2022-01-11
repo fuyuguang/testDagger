@@ -6,6 +6,8 @@ import com.example.testdagger.SecondActivity;
 import com.example.testdagger.ThreeActivity;
 import com.example.testdagger.component.MyAppComponent;
 import com.example.testdagger.component.SecondActivityComponent;
+import com.example.testdagger.injectcollection.InjectModule;
+import com.example.testdagger.injectcollection.InjectcollectionActivity;
 
 import javax.inject.Named;
 
@@ -21,6 +23,9 @@ import dagger.multibindings.IntoMap;
  * 提供 abstract 的方法  contritution 的注解
  */
 @Module(subcomponents = {SecondActivityComponent.class})
+/**
+ *  BuildersModule 类和里面的方法 要是  abstract的。
+ */
 public abstract class BuildersModule {
 
     /**
@@ -73,11 +78,13 @@ public abstract class BuildersModule {
 
 
     /**
-     * 方式1： @ContributesAndroidInjector(modules = DogMudule.class)，此处指定 DogMudule.class
+     * 方式1： @ContributesAndroidInjector(modules = DogMudule.class)，此处指定 DogMudule.class ,,
+     *  prodiverDog  方法 可以指定到统一的  CommentModule 类中使用。
      * @return
      */
     @ContributesAndroidInjector(modules = DogMudule.class)
     public abstract ThreeActivity inject2();
+
 
     /**
      * 方式2， ContributesAndroidInjector对应的modules，可以统一在 {@link MyAppComponent}类@Component中的{@link Component#modules()} 中注册
@@ -93,4 +100,10 @@ public abstract class BuildersModule {
 //    @ContributesAndroidInjector()
 //    public abstract ThreeActivity inject();
 
+
+
+
+
+    @ContributesAndroidInjector(modules = InjectModule.class)
+    public abstract InjectcollectionActivity inject();
 }
