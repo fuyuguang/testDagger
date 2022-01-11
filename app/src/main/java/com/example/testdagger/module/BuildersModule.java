@@ -4,6 +4,8 @@ import com.example.testdagger.SecondActivity;
 import com.example.testdagger.ThreeActivity;
 import com.example.testdagger.component.MyAppComponent;
 import com.example.testdagger.component.SecondActivityComponent;
+import com.example.testdagger.inject_map.InjectMapActivity;
+import com.example.testdagger.inject_map.InjectMapModule;
 import com.example.testdagger.inject_set.InjectSetModule;
 import com.example.testdagger.inject_set.InjectSetActivity;
 
@@ -101,5 +103,9 @@ public abstract class BuildersModule {
 
 
     @ContributesAndroidInjector(modules = InjectSetModule.class)
-    public abstract InjectSetActivity inject();
+    public abstract InjectSetActivity injectSetActivity();
+
+
+    @ContributesAndroidInjector(modules = InjectMapModule.class)
+    public abstract InjectMapActivity injectMapActivity();
 }

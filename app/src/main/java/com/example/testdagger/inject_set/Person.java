@@ -1,6 +1,6 @@
 package com.example.testdagger.inject_set;
 
-public class Person {
+public class Person implements Comparable<Person>{
     String name ;
     public Person(){
 
@@ -15,5 +15,13 @@ public class Person {
         return "Person{" +
                 "name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Person o) {
+        if (o != null){
+            return this.name.compareTo(o.name);
+        }
+        return 0;
     }
 }

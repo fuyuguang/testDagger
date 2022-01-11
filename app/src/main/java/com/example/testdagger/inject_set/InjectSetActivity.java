@@ -13,7 +13,10 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import dagger.android.AndroidInjection;
-
+/**
+ * 参考博客：
+ * https://www.jianshu.com/p/c1411ff6c975
+ */
 public class InjectSetActivity extends AppCompatActivity {
 
 

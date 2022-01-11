@@ -12,7 +12,7 @@ import dagger.android.AndroidInjector;
 
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasAndroidInjector;
-import dagger.android.support.DaggerApplication;
+//import dagger.android.support.DaggerApplication;
 
 /**
  * 1，该类需要 implements HasAndroidInjector 接口，
