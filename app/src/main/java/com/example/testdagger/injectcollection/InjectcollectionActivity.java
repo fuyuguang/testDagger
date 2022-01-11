@@ -24,6 +24,15 @@ public class InjectcollectionActivity extends AppCompatActivity {
     @Inject
     Set<Person> set;
 
+//    不行 @Named("1") 没有 @IntoSet
+//    @Named("1")
+//    @Inject
+//    Set<Person> mSet;
+
+    @Named("2")
+    @Inject
+    Set<Person> mSet;
+
     private TextView txt1;
 
     @Override
@@ -37,6 +46,9 @@ public class InjectcollectionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         txt1 = findViewById(R.id.txt1);
 
-        txt1.setText("InjectcollectionActivity   : " + set.toString());
+        txt1.setText("InjectcollectionActivity   set : " + set.toString());
+        txt1.append("\n");
+        txt1.append("InjectcollectionActivity   mSet : " + mSet.toString());
+
     }
 }
