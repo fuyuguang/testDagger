@@ -1,4 +1,4 @@
-package com.example.testdagger.injectcollection;
+package com.example.testdagger.inject_set;
 
 public class Person {
     String name ;

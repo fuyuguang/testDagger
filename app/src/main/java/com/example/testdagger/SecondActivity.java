@@ -5,9 +5,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testdagger.bean.Dog;
 import com.example.testdagger.bean.Usr;
-import com.example.testdagger.injectcollection.Person;
+import com.example.testdagger.inject_set.Person;
 
 import javax.inject.Inject;
 import javax.inject.Named;

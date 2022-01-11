@@ -1,15 +1,11 @@
 package com.example.testdagger.module;
 
-import android.app.Activity;
-
 import com.example.testdagger.SecondActivity;
 import com.example.testdagger.ThreeActivity;
 import com.example.testdagger.component.MyAppComponent;
 import com.example.testdagger.component.SecondActivityComponent;
-import com.example.testdagger.injectcollection.InjectModule;
-import com.example.testdagger.injectcollection.InjectcollectionActivity;
-
-import javax.inject.Named;
+import com.example.testdagger.inject_set.InjectSetModule;
+import com.example.testdagger.inject_set.InjectSetActivity;
 
 import dagger.Binds;
 import dagger.Component;
@@ -104,6 +100,6 @@ public abstract class BuildersModule {
 
 
 
-    @ContributesAndroidInjector(modules = InjectModule.class)
-    public abstract InjectcollectionActivity inject();
+    @ContributesAndroidInjector(modules = InjectSetModule.class)
+    public abstract InjectSetActivity inject();
 }

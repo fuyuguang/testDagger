@@ -1,17 +1,13 @@
 package com.example.testdagger.component;
 
 import com.example.testdagger.MyApplication;
-import com.example.testdagger.injectcollection.InjectModule;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
 import com.example.testdagger.module.DogMudule;
 
-import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
-import dagger.android.AndroidInjector;
 import dagger.android.support.AndroidSupportInjectionModule;
-import dagger.internal.Preconditions;
 
 //@Component(modules = {
 ////        MainActivityModule.class,

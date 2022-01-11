@@ -32,7 +32,7 @@
 
 
         <activity
-            android:name="com.example.testdagger.injectcollection.InjectcollectionActivity"
+            android:name="com.example.testdagger.inject_set.InjectSetActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

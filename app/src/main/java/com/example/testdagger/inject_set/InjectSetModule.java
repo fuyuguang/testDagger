@@ -1,11 +1,8 @@
-package com.example.testdagger.injectcollection;
+package com.example.testdagger.inject_set;
 
-
-import android.util.ArraySet;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import javax.inject.Named;
 
@@ -15,7 +12,7 @@ import dagger.multibindings.ElementsIntoSet;
 import dagger.multibindings.IntoSet;
 
 @Module()
-public class InjectModule {
+public class InjectSetModule {
 
     @Named("1")
     @Provides
@@ -54,7 +51,7 @@ public class InjectModule {
     @Provides
     /**
      *
-     *  使用 @IntoSet 这个注解不行，注入不到 {@link com.example.testdagger.injectcollection.InjectcollectionActivity.set 中}
+     *  使用 @IntoSet 这个注解不行，注入不到 {@link InjectSetActivity.set 中}
      */
     @ElementsIntoSet
     /**

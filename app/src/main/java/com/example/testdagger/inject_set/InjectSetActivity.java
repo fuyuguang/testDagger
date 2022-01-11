@@ -1,4 +1,4 @@
-package com.example.testdagger.injectcollection;
+package com.example.testdagger.inject_set;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -6,10 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testdagger.R;
-import com.example.testdagger.bean.Dog;
-import com.example.testdagger.bean.Usr;
 
-import java.util.Arrays;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -17,7 +14,7 @@ import javax.inject.Named;
 
 import dagger.android.AndroidInjection;
 
-public class InjectcollectionActivity extends AppCompatActivity {
+public class InjectSetActivity extends AppCompatActivity {
 
 
 //    @Named("1")
@@ -47,6 +44,7 @@ public class InjectcollectionActivity extends AppCompatActivity {
         txt1 = findViewById(R.id.txt1);
 
         txt1.setText("InjectcollectionActivity   set : " + set.toString());
+        txt1.append("\n");
         txt1.append("\n");
         txt1.append("InjectcollectionActivity   mSet : " + mSet.toString());
 

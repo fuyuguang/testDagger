@@ -1,23 +1,11 @@
 package com.example.testdagger.component;
 
-import android.app.Activity;
-
 import com.example.testdagger.SecondActivity;
-import com.example.testdagger.bean.Dog;
-import com.example.testdagger.injectcollection.InjectModule;
-import com.example.testdagger.module.CommentModule;
-import com.example.testdagger.module.DogMudule;
-import com.example.testdagger.module.SecondActivityModule;
+import com.example.testdagger.inject_set.InjectSetModule;
 
-import javax.inject.Inject;
-
-import dagger.Binds;
 import dagger.Component;
 import dagger.Subcomponent;
-import dagger.android.AndroidInjectionModule;
 import dagger.android.AndroidInjector;
-import dagger.multibindings.ClassKey;
-import dagger.multibindings.IntoMap;
 
 /**
  * 这里出的问题，，Component不需要关联SecondActivityModule，
@@ -34,8 +22,8 @@ import dagger.multibindings.IntoMap;
  * 可以用 @Subcomponent() SecondActivity类成员的 Person mperson，可以写在父类的modules里，，
  *
  */
-//@Subcomponent() 没有 Person mperson的时候
-@Subcomponent(modules = InjectModule.class)
+//SecondActivity 没有 Person mperson的时候用@Subcomponent()
+@Subcomponent(modules = InjectSetModule.class)
 public interface SecondActivityComponent extends AndroidInjector<SecondActivity> {
 
     /**
