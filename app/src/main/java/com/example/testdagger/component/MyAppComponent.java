@@ -1,10 +1,15 @@
 package com.example.testdagger.component;
 
+import android.app.Application;
+
 import com.example.testdagger.MyApplication;
+import com.example.testdagger.component_builder.BuildModule;
+import com.example.testdagger.component_builder.BuildModule2;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
 import com.example.testdagger.module.DogMudule;
 
+import dagger.BindsInstance;
 import dagger.Component;
 import dagger.android.AndroidInjectionModule;
 import dagger.android.support.AndroidSupportInjectionModule;
@@ -50,6 +55,10 @@ import dagger.android.support.AndroidSupportInjectionModule;
          *  供 ThreeActivity 使用
          */
         DogMudule.class,
+        /**
+         * 测试Component.Builder
+         */
+        BuildModule2.class
 })
 public interface MyAppComponent {
     void inject(MyApplication application);
@@ -62,6 +71,35 @@ public interface MyAppComponent {
      * @return
      */
     SecondActivityComponent.Factory getSecondActivityComponent();
+
+
+    /**
+     *
+     * Builder是一种具有 {@linkplain Component#modules modules} 的 setter 方法的类型，
+     *
+     * 组件可能有一个嵌套的 {@code static abstract class} 或 {@code interface}
+     *    {@code @Component.Builder} 注释。如果他们这样做了，（那么组件生成的构建器将匹配类型中的 API）那么 Dagger 将生成一个构建器
+            实现该类型的类。请注意，带有 {@code @Component.Builder} 的组件可能也没有 {@code @Component.Factory}。
+     * 通过使用 Component.Builder 来注解接口，Dagger 会自动生成跟上面完全相同的 Builder 类。可以自己去查看生成的 DaggerAppComponent 类。
+     * 这种情况下加或不加Builder类都行，没有的话会自动生成
+     * 如何实现自定义Builder类？ 这时候我们就需要使用到 @BindsInstance 注解了。
+     */
+//    @Component.Builder
+//    interface Builder {
+//        MyAppComponent build();
+//        Builder buildModule(BuildModule buildModule);
+//    }
+
+
+    //测试@BindsInstance，用法，代替
+    @Component.Builder
+    interface Builder {
+        MyAppComponent build();
+        @BindsInstance
+        Builder application(Application application);
+        //由于BuildModule 类的构造方法需要application  参数，即使加上 @BindsInstance Builder application(Application application); 也需要new BuildModule(application)
+        //Builder buildModule(BuildModule buildModule);
+    }
 
 
 

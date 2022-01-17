@@ -23,6 +23,7 @@ import dagger.multibindings.IntoMap;
 @Module(subcomponents = {SecondActivityComponent.class})
 /**
  *  BuildersModule 类和里面的方法 要是  abstract的。
+ *  参考自： [Dagger2 与 AndroidInjector](https://juejin.cn/post/6844903481027854344)
  */
 public abstract class BuildersModule {
 
