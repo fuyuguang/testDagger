@@ -7,11 +7,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testdagger.bean.Dog;
 import com.example.testdagger.bean.Usr;
+import com.example.testdagger.module.BuildersModule;
 
 import javax.inject.Inject;
 
 import dagger.android.AndroidInjection;
 
+/**
+ * 测试 @ContributesAndroidInjector用法
+ *
+ * {@link BuildersModule#inject2()}
+ */
 public class ThreeActivity extends AppCompatActivity {
 
     @Inject

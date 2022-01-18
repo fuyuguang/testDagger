@@ -4,6 +4,7 @@ import android.app.Application;
 
 
 import com.example.testdagger.component.DaggerMyAppComponent;
+import com.example.testdagger.component.MyAppComponent;
 import com.example.testdagger.component_builder.BuildModule;
 
 import javax.inject.Inject;
@@ -27,6 +28,7 @@ public class MyApplication extends Application implements HasAndroidInjector {
 
     @Inject
     DispatchingAndroidInjector<Object> dispatchingAndroidInjector;
+    private static MyAppComponent mMyAppComponent;
 
     @Override
     public void onCreate() {
@@ -42,9 +44,13 @@ public class MyApplication extends Application implements HasAndroidInjector {
 
         //DaggerMyAppComponent.builder().buildModule(new BuildModule(this)).build().inject(this);
         //测试@BindsInstance，用法，代替
-        DaggerMyAppComponent.builder().application(this).build().inject(this);
+        mMyAppComponent = DaggerMyAppComponent.builder().application(this).build();
+        mMyAppComponent.inject(this);
     }
 
+    public static MyAppComponent getMyAppComponent(){
+        return mMyAppComponent;
+    }
 
     @Override
     public AndroidInjector<Object> androidInjector() {

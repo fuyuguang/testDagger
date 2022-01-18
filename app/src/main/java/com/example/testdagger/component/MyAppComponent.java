@@ -3,11 +3,17 @@ package com.example.testdagger.component;
 import android.app.Application;
 
 import com.example.testdagger.MyApplication;
-import com.example.testdagger.component_builder.BuildModule;
+import com.example.testdagger.bean.Dog;
 import com.example.testdagger.component_builder.BuildModule2;
+import com.example.testdagger.dependencies.DependenciesActivity;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
 import com.example.testdagger.module.DogMudule;
+import com.example.testdagger.subcomponent.ActivityComponent;
+import com.example.testdagger.subcomponent.ActivityModule;
+import com.example.testdagger.subcomponent.SubComponentActivity;
+
+import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -71,6 +77,23 @@ public interface MyAppComponent {
      * @return
      */
     SecondActivityComponent.Factory getSecondActivityComponent();
+
+    /**
+     * 将DogMudule中的  Dog 暴露出来，以便于 通过dependencies方式 依赖于 MyAppComponent 的Component调用
+     * subComponent的方式，不需要暴露这个方法，就可以直接使用 {@link SubComponentActivity#mDog}
+     *
+     * {@link DependenciesActivity#mDog}
+     * @return
+     */
+    Dog provideDog();
+
+
+    /**
+     * 演示subComponent ，ActivityComponent，SubComponentActivity
+     * @param activityModule
+     * @return
+     */
+    ActivityComponent addActivityComponent(ActivityModule activityModule);
 
 
     /**

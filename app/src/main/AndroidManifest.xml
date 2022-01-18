@@ -58,8 +58,21 @@
 
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.example.testdagger.dependencies.DependenciesActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.testdagger.subcomponent.SubComponentActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
     </application>
 
