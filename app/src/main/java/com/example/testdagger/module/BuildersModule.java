@@ -4,6 +4,8 @@ import com.example.testdagger.SecondActivity;
 import com.example.testdagger.ThreeActivity;
 import com.example.testdagger.component.MyAppComponent;
 import com.example.testdagger.component.SecondActivityComponent;
+import com.example.testdagger.component_builder.FourActivity;
+import com.example.testdagger.component_builder.FourActivityComponent;
 import com.example.testdagger.inject_map.InjectMapActivity;
 import com.example.testdagger.inject_map.InjectMapModule;
 import com.example.testdagger.inject_set.InjectSetModule;
@@ -18,9 +20,11 @@ import dagger.multibindings.ClassKey;
 import dagger.multibindings.IntoMap;
 
 /**
- * 提供 abstract 的方法  contritution 的注解
+ * 提供 abstract 的方法  contritution 的注解,
+ *
+ * BuildersModule  引入的子component要在这里注册
  */
-@Module(subcomponents = {SecondActivityComponent.class})
+@Module(subcomponents = {SecondActivityComponent.class,FourActivityComponent.class})
 /**
  *  BuildersModule 类和里面的方法 要是  abstract的。
  *  参考自： [Dagger2 与 AndroidInjector](https://juejin.cn/post/6844903481027854344)
@@ -39,7 +43,10 @@ public abstract class BuildersModule {
     @ClassKey(SecondActivity.class)
     public abstract AndroidInjector.Factory<?> bindSecondActivityInjectorFactory(SecondActivityComponent.Factory builder);
 
-
+    @Binds
+    @IntoMap
+    @ClassKey(FourActivity.class)
+    public abstract AndroidInjector.Factory<?> bindFourActivityInjectorFactory(FourActivityComponent.Factory factory);
 
 
 //    /**
