@@ -1,9 +1,10 @@
 package com.example.testdagger.module;
 
-import com.example.testdagger.SecondActivity;
-import com.example.testdagger.ThreeActivity;
+import com.example.testdagger.contributesandroidinjector.ContributesAndroidInjectorModule;
+import com.example.testdagger.contributesandroidinjector.TestContributesAndroidInjectorActivity;
+import com.example.testdagger.androidinjector.AndroidInjectorActivity;
 import com.example.testdagger.component.MyAppComponent;
-import com.example.testdagger.component.SecondActivityComponent;
+import com.example.testdagger.androidinjector.AndroidInjectorActivityComponent;
 import com.example.testdagger.component_builder.FourActivity;
 import com.example.testdagger.component_builder.FourActivityComponent;
 import com.example.testdagger.inject_map.InjectMapActivity;
@@ -24,7 +25,7 @@ import dagger.multibindings.IntoMap;
  *
  * BuildersModule  引入的子component要在这里注册
  */
-@Module(subcomponents = {SecondActivityComponent.class,FourActivityComponent.class})
+@Module(subcomponents = {AndroidInjectorActivityComponent.class,FourActivityComponent.class})
 /**
  *  BuildersModule 类和里面的方法 要是  abstract的。
  *  参考自： [Dagger2 与 AndroidInjector](https://juejin.cn/post/6844903481027854344)
@@ -33,15 +34,15 @@ public abstract class BuildersModule {
 
     /**
      * 方式1： public interface Factory extends AndroidInjector.Factory<SecondActivity> { }
-     * 要和  {@link SecondActivityComponent 中}
+     * 要和  {@link AndroidInjectorActivityComponent 中}
      * @Subcomponent.Factory
      * public interface Factory extends AndroidInjector.Factory<SecondActivity> { }
      * 对应
      */
     @Binds
     @IntoMap
-    @ClassKey(SecondActivity.class)
-    public abstract AndroidInjector.Factory<?> bindSecondActivityInjectorFactory(SecondActivityComponent.Factory builder);
+    @ClassKey(AndroidInjectorActivity.class)
+    public abstract AndroidInjector.Factory<?> bindSecondActivityInjectorFactory(AndroidInjectorActivityComponent.Factory builder);
 
     @Binds
     @IntoMap
@@ -53,7 +54,7 @@ public abstract class BuildersModule {
 //     * 方式2： interface Builder extends AndroidInjector.Factory<SecondActivity> { }， 和方式1的区别，仅仅是接口的名称不同而已！！！！！
 //     *
 //     * 方式1和方式2不能同时使用会报：
-//     * java.lang.IllegalArgumentException: expected one element but was: <com.example.testdagger.component.SecondActivityComponent.Factory, com.example.testdagger.component.SecondActivityComponent.Builder>
+//     * java.lang.IllegalArgumentException: expected one element but was: <com.example.testdagger.androidinjector.SecondActivityComponent.Factory, com.example.testdagger.androidinjector.SecondActivityComponent.Builder>
 //     *
 //     * 要和 SecondActivityComponent中
 //     * @Subcomponent.Factory
@@ -88,8 +89,8 @@ public abstract class BuildersModule {
      *  prodiverDog  方法 可以指定到统一的  CommentModule 类中使用。
      * @return
      */
-    @ContributesAndroidInjector(modules = DogMudule.class)
-    public abstract ThreeActivity inject2();
+    @ContributesAndroidInjector(modules = ContributesAndroidInjectorModule.class)
+    public abstract TestContributesAndroidInjectorActivity inject2();
 
 
     /**

@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testdagger.R;
 import com.example.testdagger.bean.Dog;
-import com.example.testdagger.bean.Usr;
+import com.example.testdagger.androidinjector.Usr;
 
 import javax.inject.Inject;
 

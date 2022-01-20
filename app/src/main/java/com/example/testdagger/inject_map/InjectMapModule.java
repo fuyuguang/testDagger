@@ -1,23 +1,17 @@
 package com.example.testdagger.inject_map;
 
 
-import com.example.testdagger.inject_set.InjectSetActivity;
-import com.example.testdagger.inject_set.Person;
+import com.example.testdagger.androidinjector.Person;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
-import javax.inject.Inject;
 import javax.inject.Named;
 
 import dagger.Module;
 import dagger.Provides;
 import dagger.multibindings.ClassKey;
-import dagger.multibindings.ElementsIntoSet;
 import dagger.multibindings.IntKey;
 import dagger.multibindings.IntoMap;
-import dagger.multibindings.IntoSet;
 import dagger.multibindings.LongKey;
 import dagger.multibindings.StringKey;
 

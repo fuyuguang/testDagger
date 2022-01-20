@@ -2,17 +2,12 @@ package com.example.testdagger;
 
 import android.app.Application;
 
-
 import com.example.testdagger.component.DaggerMyAppComponent;
 import com.example.testdagger.component.MyAppComponent;
-import com.example.testdagger.component_builder.BuildModule;
 
 import javax.inject.Inject;
 
-import dagger.BindsInstance;
 import dagger.android.AndroidInjector;
-
-
 import dagger.android.DispatchingAndroidInjector;
 import dagger.android.HasAndroidInjector;
 //import dagger.android.support.DaggerApplication;
@@ -44,6 +39,7 @@ public class MyApplication extends Application implements HasAndroidInjector {
 
         //DaggerMyAppComponent.builder().buildModule(new BuildModule(this)).build().inject(this);
         //测试@BindsInstance，用法，代替
+
         mMyAppComponent = DaggerMyAppComponent.builder().application(this).build();
         mMyAppComponent.inject(this);
     }

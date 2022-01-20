@@ -1,6 +1,5 @@
-package com.example.testdagger.component;
+package com.example.testdagger.androidinjector;
 
-import com.example.testdagger.SecondActivity;
 import com.example.testdagger.inject_set.InjectSetModule;
 
 import dagger.Component;
@@ -11,26 +10,26 @@ import dagger.android.AndroidInjector;
  * 这里出的问题，，Component不需要关联SecondActivityModule，
  * <p>
  * 错误写法 ：
- * 注意这里的 SecondActivityComponent 不能在引用 抽象类  SecondActivityModule了， 会报java.lang.StackOverflowError
- * @Subcomponent(modules = { SecondActivityModule.class,AndroidInjectionModule.class})
+ * 注意这里的 AndroidInjectorActivityComponent 不能在引用 抽象类  {@link com.example.testdagger.androidinjector.AndroidInjectorCustomModule}了， 会报java.lang.StackOverflowError
+ * @Subcomponent(modules = { AndroidInjectorModule.class,AndroidInjectionModule.class})
  * 如果关联会报错：(Execution failed for task ':app:compileDebugJavaWithJavac'. > java.lang.StackOverflowError)
  * <p>
- * 但需要关联AndroidInjectionModule (已经在父类里关联了), SecondActivityModule需要在AppComponent中注册
+ * 但需要关联AndroidInjectionModule (已经在父类里关联了), AndroidInjectorModule需要在AppComponent中注册
  */
 //@Subcomponent(modules = {AndroidInjectionModule.class})
 /**
  * 可以用 @Subcomponent() SecondActivity类成员的 Person mperson，可以写在父类的modules里，，
  *
  */
-//SecondActivity 没有 Person mperson的时候用@Subcomponent()
+//AndroidInjectorActivity 没有 Person mperson的时候用@Subcomponent()
 @Subcomponent(modules = InjectSetModule.class)
-public interface SecondActivityComponent extends AndroidInjector<SecondActivity> {
+public interface AndroidInjectorActivityComponent extends AndroidInjector<AndroidInjectorActivity> {
 
     /**
      * 方式1：
      */
     @Subcomponent.Factory
-    public interface Factory extends AndroidInjector.Factory<SecondActivity> { }
+    public interface Factory extends AndroidInjector.Factory<AndroidInjectorActivity> { }
 
 //    /**
 //     * 方式2：

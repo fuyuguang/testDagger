@@ -1,4 +1,4 @@
-package com.example.testdagger.bean;
+package com.example.testdagger.androidinjector;
 
 import java.util.Random;
 

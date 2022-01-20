@@ -3,17 +3,15 @@ package com.example.testdagger.component;
 import android.app.Application;
 
 import com.example.testdagger.MyApplication;
+import com.example.testdagger.androidinjector.AndroidInjectorActivityComponent;
 import com.example.testdagger.bean.Dog;
 import com.example.testdagger.component_builder.BuildModule2;
 import com.example.testdagger.dependencies.DependenciesActivity;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
-import com.example.testdagger.module.DogMudule;
 import com.example.testdagger.subcomponent.ActivityComponent;
 import com.example.testdagger.subcomponent.ActivityModule;
 import com.example.testdagger.subcomponent.SubComponentActivity;
-
-import javax.inject.Singleton;
 
 import dagger.BindsInstance;
 import dagger.Component;
@@ -51,16 +49,16 @@ import dagger.android.support.AndroidSupportInjectionModule;
         /**
          *  抽象 的 module
          */
-//        SecondActivityModule.class,
+//        AndroidInjectorCustomModule.class, //或者用下边的BuildersModule.class
         BuildersModule.class,
         /**
          *  provider 方式提供的 module，
          */
         CommentModule.class,
-        /**
-         *  供 ThreeActivity 使用
-         */
-        DogMudule.class,
+//        /**
+//         *  供 ThreeActivity 使用
+//         */
+//        ContributesAndroidInjectorMudule.class,
         /**
          * 测试Component.Builder
          */
@@ -76,7 +74,7 @@ public interface MyAppComponent {
      *
      * @return
      */
-    SecondActivityComponent.Factory getSecondActivityComponent();
+    AndroidInjectorActivityComponent.Factory getSecondActivityComponent();
 
     /**
      * 将DogMudule中的  Dog 暴露出来，以便于 通过dependencies方式 依赖于 MyAppComponent 的Component调用

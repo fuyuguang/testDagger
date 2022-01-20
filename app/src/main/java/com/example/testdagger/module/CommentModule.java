@@ -1,6 +1,7 @@
 package com.example.testdagger.module;
 
-import com.example.testdagger.bean.Usr;
+import com.example.testdagger.androidinjector.Usr;
+import com.example.testdagger.bean.Dog;
 
 import dagger.Module;
 import dagger.Provides;
@@ -16,5 +17,10 @@ public class CommentModule {
         return new Usr();
     }
 
+
+    @Provides
+    public Dog prodiverDog() {
+        return new Dog();
+    }
 
 }

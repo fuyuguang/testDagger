@@ -6,17 +6,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testdagger.R;
-import com.example.testdagger.inject_set.Person;
+import com.example.testdagger.androidinjector.Person;
 
-import java.math.BigDecimal;
 import java.util.Map;
-import java.util.Set;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import dagger.android.AndroidInjection;
-import dagger.multibindings.IntoSet;
 
 /**
  * 参考博客：
@@ -37,7 +34,7 @@ public class InjectMapActivity extends AppCompatActivity {
 
     /**
      *  Map<Class,Person> mMap4, 这样写会报错
-     *  java.util.Map<java.lang.Class,com.example.testdagger.inject_set.Person> cannot be provided without an @Provides-annotated method.
+     *  java.util.Map<java.lang.Class,com.example.testdagger.androidinjector.Person> cannot be provided without an @Provides-annotated method.
      *
      *  必须要带泛型
      */

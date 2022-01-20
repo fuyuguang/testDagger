@@ -1,6 +1,8 @@
 package com.example.testdagger.inject_set;
 
 
+import com.example.testdagger.androidinjector.Person;
+
 import java.util.HashSet;
 import java.util.Set;
 

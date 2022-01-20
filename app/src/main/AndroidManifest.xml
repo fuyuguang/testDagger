@@ -12,7 +12,7 @@
         android:theme="@style/Theme.TestDagger">
 
         <activity
-            android:name=".SecondActivity"
+            android:name=".androidinjector.AndroidInjectorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
 
 
         <activity
-            android:name=".ThreeActivity"
+            android:name=".contributesandroidinjector.TestContributesAndroidInjectorActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,10 +9,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.testdagger.MyApplication;
 import com.example.testdagger.R;
 import com.example.testdagger.bean.Dog;
-import com.example.testdagger.bean.Usr;
-
-import com.example.testdagger.dependencies.FiveBean;
-import com.example.testdagger.dependencies.FiveModule;
 
 import javax.inject.Inject;
 

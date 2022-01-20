@@ -1,4 +1,4 @@
-package com.example.testdagger.inject_set;
+package com.example.testdagger.androidinjector;
 
 public class Person implements Comparable<Person>{
     String name ;

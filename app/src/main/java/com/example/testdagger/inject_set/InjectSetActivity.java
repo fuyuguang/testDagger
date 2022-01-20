@@ -6,6 +6,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testdagger.R;
+import com.example.testdagger.androidinjector.Person;
 
 import java.util.Set;
 

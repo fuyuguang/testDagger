@@ -8,12 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.testdagger.MyApplication;
 import com.example.testdagger.R;
 import com.example.testdagger.bean.Dog;
-import com.example.testdagger.bean.Usr;
 //import com.example.testdagger.component.DaggerMyAppComponent;
 
 import javax.inject.Inject;
-
-import dagger.android.AndroidInjection;
 
 public class DependenciesActivity extends AppCompatActivity {
 
@@ -28,9 +25,9 @@ public class DependenciesActivity extends AppCompatActivity {
      *
      *  无法提供这个依赖，，因为父类中没有暴露提供 Usr的 方法。需要注释掉！！！
      *
-     * 错误: [Dagger/MissingBinding] com.example.testdagger.bean.Usr cannot be provided without
+     * 错误: [Dagger/MissingBinding] com.example.testdagger.androidinjector.Usr cannot be provided without
      * an @Inject constructor or an @Provides-annotated method.错误: [Dagger/MissingBinding]
-     * com.example.testdagger.bean.Usr cannot be provided without
+     * com.example.testdagger.androidinjector.Usr cannot be provided without
      * an @Inject constructor or an @Provides-annotated method.
      * 只能继承父Component 中暴露（提供 Dog的  provideDog()）方法，供子Component使用，为暴露的方法不能在子Component中使用
      *
