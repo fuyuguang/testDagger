@@ -11,6 +11,7 @@ import com.example.testdagger.inject_map.InjectMapActivity;
 import com.example.testdagger.inject_map.InjectMapModule;
 import com.example.testdagger.inject_set.InjectSetModule;
 import com.example.testdagger.inject_set.InjectSetActivity;
+import com.example.testdagger.lazy_provider.TestLazy_ProviderActivity;
 
 import dagger.Binds;
 import dagger.Component;
@@ -117,4 +118,11 @@ public abstract class BuildersModule {
 
     @ContributesAndroidInjector(modules = InjectMapModule.class)
     public abstract InjectMapActivity injectMapActivity();
+
+
+
+
+    @ContributesAndroidInjector()
+    public abstract TestLazy_ProviderActivity testLazy_ProviderActivity();
+
 }

@@ -9,6 +9,7 @@ import com.example.testdagger.component_builder.BuildModule2;
 import com.example.testdagger.dependencies.DependenciesActivity;
 import com.example.testdagger.module.BuildersModule;
 import com.example.testdagger.module.CommentModule;
+import com.example.testdagger.scope.ApplicationScope;
 import com.example.testdagger.subcomponent.ActivityComponent;
 import com.example.testdagger.subcomponent.ActivityModule;
 import com.example.testdagger.subcomponent.SubComponentActivity;
@@ -64,6 +65,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
          */
         BuildModule2.class
 })
+@ApplicationScope
 public interface MyAppComponent {
     void inject(MyApplication application);
 
